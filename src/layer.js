@@ -1,4 +1,4 @@
-import MapboxGl from "mapbox-gl/dist/mapbox-gl";
+import MapboxGl from "./mapbox-gl-js.bundle";
 import React, { Component, PropTypes, cloneElement, Children } from "react";
 import _ from "lodash";
 import { diff } from "./helper";

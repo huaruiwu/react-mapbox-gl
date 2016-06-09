@@ -4,6 +4,7 @@ import Feature from "./feature";
 import ZoomControl from "./zoom-control";
 import Popup from "./popup";
 import ScaleControl from "./scale-control";
+import Overlay from "./overlay";
 
 export {
   Feature,
@@ -11,7 +12,8 @@ export {
   Map,
   Popup,
   ZoomControl,
-  ScaleControl
+  ScaleControl,
+  Overlay
 };
 
 export default Map;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapboxGl, { Layer, Feature, ScaleControl, ZoomControl } from "../src/index";
+import ReactMapboxGl, { Layer, Feature, ScaleControl, ZoomControl, Overlay } from "../src/index";
 import route from "./route.json";
 import config from "./config.json";
 
@@ -9,6 +9,13 @@ const containerStyle = {
   height: "100vh",
   width: "100%"
 };
+
+const imageCoords = [
+  [-80.425, 46.437],
+  [-71.516, 46.437],
+  [-71.516, 37.936],
+  [-80.425, 37.936]
+];
 
 const polygonCoords = [[
   [-0.13235092163085938,51.518250335096376],
@@ -107,6 +114,10 @@ export default class AllShapes extends Component {
         containerStyle={containerStyle}>
         <ScaleControl/>
         <ZoomControl/>
+        <Overlay
+          url=""
+          coordinates={imageCoords}/>
+
         <Layer
           type="symbol"
           layout={{ "icon-image": "harbor-15" }}>

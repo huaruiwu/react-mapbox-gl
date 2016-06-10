@@ -1,40 +1,50 @@
 import React, { Component, PropTypes } from "react";
 import MapboxGl from "mapbox-gl/dist/mapbox-gl";
+import BaseLayer from "./base-layer";
 
 let index = 0;
 const generateID = () => index++;
 
-export default class Overlay extends Component {
+export default class Overlay extends BaseLayer {
 
-  static contextTypes = {
-    map: PropTypes.object
+  static defaultProps = {
+    
   };
 
-  static propTypes = {
-    id: PropTypes.string,
-    url: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.array).isRequired,
-  };
-
-  identifier = this.props.id || generateID();
-  id = `overlay-${this.identifier}`;
+  source = new MapboxGl.ImageSource({
+  });
 
   componentWillMount() {
-    const { url, coordinates } = this.props;
-    const { map } = this.context;
-
-    const source = new MapboxGl.ImageSource({
-      url,
-      coordinates
-    });
-
-    map.addSource(this.id, source);
+    console.log("hello");
   }
 
-  componentWillUnmount() {
-    const { map } = this.context;
-    map.removeSource(this.id);
-  }
+  geometry = coordinates => {
+    // switch (this.props.type) {
+    //   case "symbol":
+    //   case "circle": return {
+    //     type: "Point",
+    //     coordinates
+    //   };
+
+    //   case "fill": return {
+    //     type: coordinates.length > 1 ? "MultiPolygon" : "Polygon",
+    //     coordinates
+    //   };
+
+    //   case "line": return {
+    //     type: "LineString",
+    //     coordinates
+    //   };
+
+    //   default: return null;
+    // }
+  };
+
+  // feature = (props, id) => ({
+  //   type: "Feature",
+  //   geometry: this.geometry(props.coordinates),
+  //   properties: { id }
+  // })
 
   render() {
     return null;

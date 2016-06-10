@@ -11,10 +11,10 @@ const containerStyle = {
 };
 
 const imageCoords = [
-  [-80.425, 46.437],
-  [-71.516, 46.437],
-  [-71.516, 37.936],
-  [-80.425, 37.936]
+  [-0.0969695, 51.5251256],
+  [-0.0969695, 51.5251256],
+  [-0.0969695, 51.5251256],
+  [-0.0969695, 51.5251256]
 ];
 
 const polygonCoords = [[
@@ -115,7 +115,8 @@ export default class AllShapes extends Component {
         <ScaleControl/>
         <ZoomControl/>
         <Overlay
-          url=""
+          type="image"
+          url="example/london.jpg"
           coordinates={imageCoords}/>
 
         <Layer

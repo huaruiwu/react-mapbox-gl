@@ -198,8 +198,10 @@ export default class ReactMapboxGl extends Component {
     );
 
     const didCenterUpdate = (
-      this.props.center !== nextProps.center &&
-      nextProps.center !== map.getCenter()
+      this.props.center.lat !== nextProps.center.lat &&
+      this.props.center.lng !== nextProps.center.lng &&
+      nextProps.center.lat !== map.getCenter().lat &&
+      nextProps.center.lng !== map.getCenter().lng
     );
 
     const didBearingUpdate = (
